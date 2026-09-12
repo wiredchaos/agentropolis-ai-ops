@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "operator-surface.pi-desktop",
+  "version": "1.0.0",
+  "status": "optional",
+  "class": "desktop-engineering-workstation",
+  "authority": "none",
+  "owners": ["AGENTROPOLIS-AI-OPS", "AGENTROPOLIS-ATG", "AGENTROPOLIS-AEGIS-ASSURANCE"],
+  "capabilities": [
+    "project-workspace",
+    "session-management",
+    "session-import",
+    "model-switching",
+    "local-model-endpoints",
+    "mcp-client",
+    "skills",
+    "plugins",
+    "file-diff",
+    "filesystem-tools",
+    "shell-tools",
+    "preview",
+    "subagents"
+  ],
+  "governance": {
+    "identityRequired": true,
+    "mandateRequiredForMutation": true,
+    "executionEnvelopeRequiredForMutation": true,
+    "riskTierSource": "ATG",
+    "assuranceSource": "AEGIS",
+    "receiptRequired": true,
+    "auditRequired": true,
+    "failClosedOnMissingEnvelope": true
+  },
+  "continuity": {
+    "importedSessionsAreAuthority": false,
+    "normalizeToContextCapsule": true,
+    "preserveSourceProvenance": true,
+    "importSecrets": false,
+    "importApprovals": false
+  },
+  "dataBoundary": {
+    "localFirstIsStorageClaimOnly": true,
+    "hostedModelMayReceiveContext": true,
+    "remoteMcpMayReceiveContext": true,
+    "surfaceActiveDataPath": true
+  },
+  "integration": {
+    "strategy": "adapter-first",
+    "forkRequired": false,
+    "recommendedPackage": "@agentropolis/pi-adapter"
+  }
+}
